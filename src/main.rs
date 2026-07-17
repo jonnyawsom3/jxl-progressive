@@ -102,7 +102,18 @@ struct Opt {
     output: PathBuf,
 }
 
+fn init_subscriber() {
+    use tracing_subscriber::prelude::*;
+
+    tracing_subscriber::registry()
+        .with(tracing_subscriber::fmt::layer())
+        .with(tracing_subscriber::EnvFilter::from_default_env())
+        .init();
+}
+
 fn main() -> Result<()> {
+    init_subscriber();
+
     let opt = Opt::parse();
     let input = std::fs::read(&opt.input)
         .wrap_err_with(|| format!("Failed to read source image from {:?}", opt.input))?;
