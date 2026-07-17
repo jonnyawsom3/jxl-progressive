@@ -1,0 +1,39 @@
+[package]
+name = "jxl_progressive"
+version = "0.0.0"
+description = "Progressive rendering demo of JPEG XL using jxl-rs"
+authors = ["Wonwoo Choi <chwo9843@gmail.com>"]
+edition = "2024"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+bytemuck = "1.14"
+color-eyre = "0.6.5"
+half = "2.4.1"
+moxcms = "0.8.1"
+tracing = "0.1.44"
+
+[dependencies.clap]
+version = "4.5.18"
+features = ["derive"]
+
+[dependencies.jxl]
+git = "https://github.com/libjxl/jxl-rs.git"
+rev = "8e8769b8a3e7eb07fc3f42d16568124c35aff79a"
+features = ["all-simd", "tracing"]
+
+[dependencies.tracing-subscriber]
+version = "0.3.18"
+features = ["env-filter"]
+
+[target.'cfg(windows)'.dependencies.rusty_ffmpeg]
+version = "0.17.0"
+features = ["link_vcpkg_ffmpeg"]
+
+[target.'cfg(not(windows))'.dependencies.rusty_ffmpeg]
+version = "0.17.0"
+features = ["link_system_ffmpeg"]
+
+[profile.release]
+debug = "line-tables-only"
+lto = "thin"
