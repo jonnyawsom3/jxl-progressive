@@ -19,7 +19,7 @@ features = ["derive"]
 
 [dependencies.jxl]
 git = "https://github.com/libjxl/jxl-rs.git"
-rev = "8e8769b8a3e7eb07fc3f42d16568124c35aff79a"
+rev = "7ae992e5a4ec24ce25f74267f6be7dee2d265101"
 features = ["all-simd", "tracing"]
 
 [dependencies.tracing-subscriber]

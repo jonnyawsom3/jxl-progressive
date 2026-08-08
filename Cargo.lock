@@ -320,8 +320,8 @@ dependencies = [
 
 [[package]]
 name = "jxl"
-version = "0.4.3"
-source = "git+https://github.com/libjxl/jxl-rs.git?rev=8e8769b8a3e7eb07fc3f42d16568124c35aff79a#8e8769b8a3e7eb07fc3f42d16568124c35aff79a"
+version = "0.5.1"
+source = "git+https://github.com/libjxl/jxl-rs.git?rev=7ae992e5a4ec24ce25f74267f6be7dee2d265101#7ae992e5a4ec24ce25f74267f6be7dee2d265101"
 dependencies = [
  "array-init",
  "byteorder",
@@ -336,8 +336,8 @@ dependencies = [
 
 [[package]]
 name = "jxl_macros"
-version = "0.4.3"
-source = "git+https://github.com/libjxl/jxl-rs.git?rev=8e8769b8a3e7eb07fc3f42d16568124c35aff79a#8e8769b8a3e7eb07fc3f42d16568124c35aff79a"
+version = "0.5.1"
+source = "git+https://github.com/libjxl/jxl-rs.git?rev=7ae992e5a4ec24ce25f74267f6be7dee2d265101#7ae992e5a4ec24ce25f74267f6be7dee2d265101"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -361,13 +361,13 @@ dependencies = [
 
 [[package]]
 name = "jxl_simd"
-version = "0.4.3"
-source = "git+https://github.com/libjxl/jxl-rs.git?rev=8e8769b8a3e7eb07fc3f42d16568124c35aff79a#8e8769b8a3e7eb07fc3f42d16568124c35aff79a"
+version = "0.5.1"
+source = "git+https://github.com/libjxl/jxl-rs.git?rev=7ae992e5a4ec24ce25f74267f6be7dee2d265101#7ae992e5a4ec24ce25f74267f6be7dee2d265101"
 
 [[package]]
 name = "jxl_transforms"
-version = "0.4.3"
-source = "git+https://github.com/libjxl/jxl-rs.git?rev=8e8769b8a3e7eb07fc3f42d16568124c35aff79a#8e8769b8a3e7eb07fc3f42d16568124c35aff79a"
+version = "0.5.1"
+source = "git+https://github.com/libjxl/jxl-rs.git?rev=7ae992e5a4ec24ce25f74267f6be7dee2d265101#7ae992e5a4ec24ce25f74267f6be7dee2d265101"
 dependencies = [
  "jxl_simd",
 ]

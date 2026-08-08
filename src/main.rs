@@ -133,7 +133,7 @@ fn main() -> Result<()> {
     let mut decoder = loop {
         let mut buf = progress.slice_buf(&input);
         let input_size = buf.len();
-        let result = initialized_decoder.process(&mut buf)?;
+        let result = initialized_decoder.process(&mut buf, None)?;
         progress.add_iter(input_size - buf.len());
         initialized_decoder = match result {
             ProcessingResult::Complete { result } => break result,
@@ -192,7 +192,7 @@ fn main() -> Result<()> {
         };
 
         let input_size = buf.len();
-        let result = decoder.process(&mut buf)?;
+        let result = decoder.process(&mut buf, None)?;
         if !first {
             progress.add_iter(input_size - buf.len());
         }
@@ -200,7 +200,7 @@ fn main() -> Result<()> {
             ProcessingResult::Complete { result } => break result,
             ProcessingResult::NeedsMoreInput { fallback, .. } => fallback,
         };
-        decoder.flush_pixels(&mut output_buf)?;
+        decoder.flush_pixels(&mut output_buf, None)?;
         encoder.add_frame(&mut output, &progress, &*transformer)?;
         progress.try_increase_step();
 
@@ -225,7 +225,7 @@ fn main() -> Result<()> {
         };
 
         let input_size = buf.len();
-        let result = decoder_frame.process(&mut buf, &mut output_buf)?;
+        let result = decoder_frame.process(&mut buf, &mut output_buf, None)?;
         if !first {
             progress.add_iter(input_size - buf.len());
         }
@@ -233,7 +233,7 @@ fn main() -> Result<()> {
             ProcessingResult::Complete { .. } => break,
             ProcessingResult::NeedsMoreInput { fallback, .. } => fallback,
         };
-        decoder_frame.flush_pixels(&mut output_buf)?;
+        decoder_frame.flush_pixels(&mut output_buf, None)?;
         encoder.add_frame(&mut output, &progress, &*transformer)?;
         progress.try_increase_step();
 
