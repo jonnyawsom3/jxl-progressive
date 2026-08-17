@@ -1,8 +1,6 @@
 name: Build Windows x64
 
 on:
-  push:
-  pull_request:
   workflow_dispatch:
 
 env:
